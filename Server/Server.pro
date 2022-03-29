@@ -11,7 +11,7 @@ CONFIG -= app_bundle
 SOURCES += \
         main.cpp \
         server.cpp
-
+win32:RC_FILE = server_icon.rc
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin

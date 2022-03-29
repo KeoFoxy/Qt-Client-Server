@@ -5,6 +5,7 @@
 #include <QTcpSocket>
 #include <QVector>
 #include <QDataStream>
+#include <QTime>
 
 class Server : public QTcpServer
 {
@@ -18,7 +19,7 @@ public:
 private:
     QVector <QTcpSocket*> Sockets;
     QByteArray Data;                                                //данные, котороый перемещаются между сервером и клиентом
-
+    quint16 nextBlockSize;
     void SendToClient(QString str);                                 //Функция передачи данных в клиент
 
 

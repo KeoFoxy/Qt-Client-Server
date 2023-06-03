@@ -6,11 +6,12 @@
 #include <QTime>
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
+namespace Ui {
+class MainWindow;
+}
 QT_END_NAMESPACE
 
-class MainWindow : public QMainWindow
-{
+class MainWindow : public QMainWindow {
     Q_OBJECT
 
 public:
@@ -19,9 +20,7 @@ public:
 
 private slots:
     void on_connectButton_clicked();
-
     void on_sendButton_clicked();
-
     void on_sendLineEdit_returnPressed();
 
 private:
@@ -29,7 +28,7 @@ private:
     QTcpSocket *socket;
     QByteArray Data;
     void SendToServer(QString str);
-    quint16 nextBlockSize;                                              //Специальный тип данных 16 бит для хранения блока.
+    quint16 nextBlockSize;
 
 public slots:
     void slotReadyRead();

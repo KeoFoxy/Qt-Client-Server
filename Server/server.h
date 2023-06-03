@@ -1,14 +1,13 @@
 #ifndef SERVER_H
 #define SERVER_H
 
+#include <QDataStream>
 #include <QTcpServer>
 #include <QTcpSocket>
-#include <QVector>
-#include <QDataStream>
 #include <QTime>
+#include <QVector>
 
-class Server : public QTcpServer
-{
+class Server : public QTcpServer {
     Q_OBJECT
 
 public:
@@ -17,15 +16,14 @@ public:
     QTcpSocket *socket;
 
 private:
-    QVector <QTcpSocket*> Sockets;
-    QByteArray Data;                                                //данные, котороый перемещаются между сервером и клиентом
+    QVector<QTcpSocket *> Sockets;
+    QByteArray Data;
     quint16 nextBlockSize;
-    void SendToClient(QString str);                                 //Функция передачи данных в клиент
-
+    void SendToClient(QString str);
 
 public slots:
-    void incomingConnection(qintptr socketDescriptor);              //Обработчик входящих соединений
-    void slotReadyRead();                                           //Обработчик полученных от клиента сообщений
+    void incomingConnection(qintptr socketDescriptor);
+    void slotReadyRead();
 };
 
 #endif // SERVER_H
